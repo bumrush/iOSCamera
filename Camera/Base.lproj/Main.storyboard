@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yib-s9-nbV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,66 +18,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtZ-kl-MjI">
-                                <rect key="frame" x="304" y="226" width="280" height="148"/>
-                                <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZu-k9-2IB">
+                                <rect key="frame" x="16" y="532" width="568" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="I6Z-58-XJp"/>
-                                    <constraint firstAttribute="height" constant="148" id="UYD-lZ-Duh"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="evf-vA-DoR"/>
+                                    <constraint firstAttribute="height" constant="48" id="3n3-5Y-Jgg"/>
+                                    <constraint firstAttribute="width" secondItem="NZu-k9-2IB" secondAttribute="height" multiplier="71:6" id="tgd-Ve-pHN"/>
                                 </constraints>
-                                <state key="normal" title="Photo Library">
+                                <state key="normal" title="Take Photo">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="I6Z-58-XJp"/>
-                                        <exclude reference="evf-vA-DoR"/>
+                                        <exclude reference="tgd-Ve-pHN"/>
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="choosePhoto:" destination="Yib-s9-nbV" eventType="touchUpInside" id="ysa-KJ-eRU"/>
+                                    <action selector="didPressTakePhoto:" destination="Yib-s9-nbV" eventType="touchUpInside" id="KT3-v8-gVB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKg-dX-UQJ">
-                                <rect key="frame" x="16" y="226" width="280" height="148"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0v-0K-jr1">
+                                <rect key="frame" x="16" y="277" width="568" height="247"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="148" id="6gf-DJ-srq"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="bue-mf-IDv"/>
-                                    <constraint firstAttribute="width" constant="260" id="gG8-8l-Q1n"/>
+                                    <constraint firstAttribute="height" constant="247" id="1do-Ra-ZYd"/>
                                 </constraints>
-                                <state key="normal" title="Camera">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="gG8-8l-Q1n"/>
-                                        <exclude reference="bue-mf-IDv"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="takePhoto:" destination="Yib-s9-nbV" eventType="touchUpInside" id="eXZ-vn-VDy"/>
-                                </connections>
-                            </button>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nv2-Vy-gvL">
+                                <rect key="frame" x="16" y="20" width="568" height="249"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GtZ-kl-MjI" firstAttribute="trailing" secondItem="LBs-S7-xVy" secondAttribute="trailingMargin" id="9L7-k2-wf9"/>
-                            <constraint firstAttribute="centerY" secondItem="OKg-dX-UQJ" secondAttribute="centerY" id="BNX-16-a9n"/>
-                            <constraint firstItem="OKg-dX-UQJ" firstAttribute="width" secondItem="GtZ-kl-MjI" secondAttribute="width" id="CFu-tj-mc8"/>
-                            <constraint firstItem="OKg-dX-UQJ" firstAttribute="leading" secondItem="LBs-S7-xVy" secondAttribute="leadingMargin" id="Gsc-gI-dM6"/>
-                            <constraint firstAttribute="centerY" secondItem="GtZ-kl-MjI" secondAttribute="centerY" id="gHX-TI-3d2"/>
-                            <constraint firstItem="OKg-dX-UQJ" firstAttribute="height" secondItem="GtZ-kl-MjI" secondAttribute="height" id="kHU-cX-RIW"/>
-                            <constraint firstItem="GtZ-kl-MjI" firstAttribute="leading" secondItem="OKg-dX-UQJ" secondAttribute="trailing" constant="8" symbolic="YES" id="uMV-oN-gTb"/>
+                            <constraint firstItem="NZu-k9-2IB" firstAttribute="trailing" secondItem="LBs-S7-xVy" secondAttribute="trailingMargin" id="5lL-EY-XtJ"/>
+                            <constraint firstItem="H0v-0K-jr1" firstAttribute="leading" secondItem="LBs-S7-xVy" secondAttribute="leadingMargin" id="7gG-Nq-ReI"/>
+                            <constraint firstAttribute="centerX" secondItem="NZu-k9-2IB" secondAttribute="centerX" id="FfZ-Rp-NAW"/>
+                            <constraint firstItem="NZu-k9-2IB" firstAttribute="top" secondItem="H0v-0K-jr1" secondAttribute="bottom" constant="8" symbolic="YES" id="Hb3-jx-YyF"/>
+                            <constraint firstItem="H0v-0K-jr1" firstAttribute="trailing" secondItem="LBs-S7-xVy" secondAttribute="trailingMargin" id="LbC-2Z-gXu"/>
+                            <constraint firstItem="nv2-Vy-gvL" firstAttribute="top" secondItem="RjP-10-Y3O" secondAttribute="bottom" id="Qr5-Hc-HLq"/>
+                            <constraint firstItem="fXE-qE-Rce" firstAttribute="top" secondItem="NZu-k9-2IB" secondAttribute="bottom" constant="8" symbolic="YES" id="VxW-Bm-d7Y"/>
+                            <constraint firstItem="NZu-k9-2IB" firstAttribute="leading" secondItem="LBs-S7-xVy" secondAttribute="leadingMargin" id="W1G-Rj-peX"/>
+                            <constraint firstAttribute="centerX" secondItem="nv2-Vy-gvL" secondAttribute="centerX" id="f0l-Ut-idC"/>
+                            <constraint firstItem="nv2-Vy-gvL" firstAttribute="trailing" secondItem="LBs-S7-xVy" secondAttribute="trailingMargin" id="fMK-2d-ouZ"/>
+                            <constraint firstItem="nv2-Vy-gvL" firstAttribute="leading" secondItem="LBs-S7-xVy" secondAttribute="leadingMargin" id="fvI-jl-qhM"/>
+                            <constraint firstAttribute="centerX" secondItem="H0v-0K-jr1" secondAttribute="centerX" id="nVl-Zy-kdc"/>
+                            <constraint firstItem="H0v-0K-jr1" firstAttribute="top" secondItem="nv2-Vy-gvL" secondAttribute="bottom" constant="8" symbolic="YES" id="sko-fm-aLd"/>
+                            <constraint firstItem="fXE-qE-Rce" firstAttribute="top" secondItem="NZu-k9-2IB" secondAttribute="bottom" constant="20" id="vfN-ci-fI9"/>
+                            <constraint firstItem="NZu-k9-2IB" firstAttribute="leading" secondItem="LBs-S7-xVy" secondAttribute="leadingMargin" id="yBb-sz-yVK"/>
+                            <constraint firstItem="NZu-k9-2IB" firstAttribute="trailing" secondItem="LBs-S7-xVy" secondAttribute="trailingMargin" id="zr8-QS-oIk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5lL-EY-XtJ"/>
+                                <exclude reference="yBb-sz-yVK"/>
+                                <exclude reference="VxW-Bm-d7Y"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="capturedImage" destination="nv2-Vy-gvL" id="Hvi-Wc-DIN"/>
+                        <outlet property="previewView" destination="H0v-0K-jr1" id="FJy-ce-B3G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3p-go-bnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="476"/>
+            <point key="canvasLocation" x="1027" y="521"/>
         </scene>
     </scenes>
 </document>
