@@ -12,13 +12,11 @@ import AVFoundation
 
 class CameraViewController: UIViewController
 {
-    
-    @IBOutlet weak var capturedImage: UIImageView!
-    @IBOutlet weak var previewView: UIView!
-    
+    var previewLayer: AVCaptureVideoPreviewLayer?
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
-    var previewLayer: AVCaptureVideoPreviewLayer?
+    
+    var capturedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +26,16 @@ class CameraViewController: UIViewController
     @IBAction func didPressTakePhoto(sender: UIButton) {
         if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
-            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (sampleBuffer, error) in
                 if (sampleBuffer != nil) {
                     var imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     var dataProvider = CGDataProviderCreateWithCFData(imageData)
                     var cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, kCGRenderingIntentDefault)
                     
-                    var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
-                    self.capturedImage.image = image
+                    self.capturedImage = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                    
+                    self.captureSession?.stopRunning()
+                    self.performSegueWithIdentifier("Photo Taken", sender: sender)
                 }
             })
         }
@@ -62,8 +62,8 @@ class CameraViewController: UIViewController
                 
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
-                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
-                previewView.layer.addSublayer(previewLayer)
+//                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+                view.layer.addSublayer(previewLayer)
                 
                 captureSession!.startRunning()
             }
@@ -72,7 +72,21 @@ class CameraViewController: UIViewController
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        previewLayer!.frame = previewView.bounds
+//        previewLayer!.frame = previewView.bounds
+        previewLayer?.frame = view.bounds
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+                case "Photo Taken":
+                    if let vc = segue.destinationViewController as? PictureViewController {
+                        vc.image = capturedImage
+                    }
+                
+                default: break
+            }
+        }
     }
     
 }

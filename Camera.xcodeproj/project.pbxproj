@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9CC15BC21AE88FB400265539 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC15BC11AE88FB400265539 /* CameraViewController.swift */; };
+		9CDEB8291AF5BF0C00F59477 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEB8281AF5BF0C00F59477 /* PictureViewController.swift */; };
 		9CF69F911AE88EA70056B274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF69F901AE88EA70056B274 /* AppDelegate.swift */; };
 		9CF69F941AE88EA70056B274 /* Camera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CF69F921AE88EA70056B274 /* Camera.xcdatamodeld */; };
-		9CF69F961AE88EA70056B274 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF69F951AE88EA70056B274 /* ViewController.swift */; };
 		9CF69F991AE88EA70056B274 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF69F971AE88EA70056B274 /* Main.storyboard */; };
 		9CF69F9B1AE88EA70056B274 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF69F9A1AE88EA70056B274 /* Images.xcassets */; };
 		9CF69F9E1AE88EA70056B274 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF69F9C1AE88EA70056B274 /* LaunchScreen.xib */; };
@@ -29,11 +29,11 @@
 
 /* Begin PBXFileReference section */
 		9CC15BC11AE88FB400265539 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		9CDEB8281AF5BF0C00F59477 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		9CF69F8B1AE88EA70056B274 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF69F8F1AE88EA70056B274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CF69F901AE88EA70056B274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF69F931AE88EA70056B274 /* Camera.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Camera.xcdatamodel; sourceTree = "<group>"; };
-		9CF69F951AE88EA70056B274 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CF69F981AE88EA70056B274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CF69F9A1AE88EA70056B274 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9CF69F9D1AE88EA70056B274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -82,12 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				9CF69F901AE88EA70056B274 /* AppDelegate.swift */,
-				9CF69F951AE88EA70056B274 /* ViewController.swift */,
 				9CC15BC11AE88FB400265539 /* CameraViewController.swift */,
+				9CDEB8281AF5BF0C00F59477 /* PictureViewController.swift */,
 				9CF69F971AE88EA70056B274 /* Main.storyboard */,
-				9CF69F9A1AE88EA70056B274 /* Images.xcassets */,
 				9CF69F9C1AE88EA70056B274 /* LaunchScreen.xib */,
-				9CF69F921AE88EA70056B274 /* Camera.xcdatamodeld */,
 				9CF69F8E1AE88EA70056B274 /* Supporting Files */,
 			);
 			path = Camera;
@@ -96,6 +94,8 @@
 		9CF69F8E1AE88EA70056B274 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9CF69F921AE88EA70056B274 /* Camera.xcdatamodeld */,
+				9CF69F9A1AE88EA70056B274 /* Images.xcassets */,
 				9CF69F8F1AE88EA70056B274 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -219,8 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CF69F961AE88EA70056B274 /* ViewController.swift in Sources */,
 				9CC15BC21AE88FB400265539 /* CameraViewController.swift in Sources */,
+				9CDEB8291AF5BF0C00F59477 /* PictureViewController.swift in Sources */,
 				9CF69F941AE88EA70056B274 /* Camera.xcdatamodeld in Sources */,
 				9CF69F911AE88EA70056B274 /* AppDelegate.swift in Sources */,
 			);
